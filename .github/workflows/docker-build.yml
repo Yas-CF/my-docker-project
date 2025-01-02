@@ -34,10 +34,3 @@ jobs:
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
 
-    - name: Deploy to Amazon ECS
-      uses: aws-actions/amazon-ecs-deploy-task-definition@v1
-      with:
-        cluster: cluster-cloudstak
-        service: service-cloudstak-api
-        task-definition: ecs/task-definition.json
-        wait-for-service-stability: true
